@@ -5,6 +5,7 @@ import IndexPage from "./pages/index";
 import NotFoundMessage from "./pages/not-found";
 import ArchivesPage from './pages/archives'
 import NavMenu from "./components/layout/NavMenu";
+import IdNoteMainPage from './pages/notes/_id-main'
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
           <Route path="/" element={<IndexPage />} />
           <Route path="/archives" element={<ArchivesPage />} />
           <Route path="/notes" element={<Navigate to="/" replace />} />
+          <Route path="/notes/:id" element={<IdNoteMainPage />} />
 		  <Route path="*" element={<NotFoundMessage />} />
         </Routes>
       </main>
