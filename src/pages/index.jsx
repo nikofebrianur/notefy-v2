@@ -8,7 +8,7 @@ export default function IndexPage() {
   const [notes, setNotes] = useState([]);
   const [search, setSearch] = useState('');
 
-  const onHandleSearch = (event) => {
+  const onSearchHandler = (event) => {
     setSearch(event.target.value);
   };
 
@@ -32,7 +32,7 @@ export default function IndexPage() {
           type='text'
           placeholder='What note are you looking for?'
           value={search}
-          onChange={onHandleSearch}
+          onChange={onSearchHandler}
         />
       </div>
       {notes.length > 0 && <NotesList notes={notes} />}
