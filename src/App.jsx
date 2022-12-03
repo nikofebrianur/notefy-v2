@@ -2,12 +2,12 @@ import React from "react";
 import { Link, Navigate, Route, Routes } from "react-router-dom";
 
 import IndexPage from "./pages/index";
-import NotFoundMessage from "./pages/not-found";
-import ArchivesPage from './pages/archives'
+import NotFoundMessage from "./pages/NotFoundPages";
+import ArchivesPage from './pages/ArchivesPage'
 import NavMenu from "./components/layout/NavMenu";
-import IdNoteMainPage from './pages/notes/_id-main'
-import NewNotePage from "./pages/notes/new";
-import IdEditNotePage from "./pages/notes/_id-edit";
+import IdNoteMainPage from './pages/notes/IdNoteMainPage'
+import NewNotePage from "./pages/notes/NewNotePage";
+import IdEditNotePage from "./pages/notes/IdEditNotePage";
 
 function App() {
   return (
