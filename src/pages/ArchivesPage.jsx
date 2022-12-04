@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Home from '../components/index/Home';
-import NotesList from '../components/notes/NotesList';
-import NotesListEmpty from '../components/notes/NotesListEmpty';
+import NoteList from '../components/notes/NoteList';
+import NoteListEmpty from '../components/notes/NoteListEmpty';
 import { getArchivedNotes } from '../utils/local-data';
 
 export default function ArchivesPage() {
@@ -17,8 +17,8 @@ export default function ArchivesPage() {
       <div className='search-bar'>
         <input type='text' placeholder='Search archived notes by title...' />
       </div>
-      {notes.length > 0 && <NotesList notes={notes} />}
-      {notes.length === 0 && <NotesListEmpty />}
+      {notes.length > 0 && <NoteList notes={notes} />}
+      {notes.length === 0 && <NoteListEmpty />}
       <Home />
     </div>
   );

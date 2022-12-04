@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Home from '../components/index/Home';
-import NotesList from '../components/notes/NotesList';
-import NotesListEmpty from '../components/notes/NotesListEmpty';
+import NoteList from '../components/notes/NoteList';
+import NoteListEmpty from '../components/notes/NoteListEmpty';
 import { getActiveNotes } from '../utils/local-data';
 
 export default function IndexPage() {
@@ -35,8 +35,8 @@ export default function IndexPage() {
           onChange={onSearchHandler}
         />
       </div>
-      {notes.length > 0 && <NotesList notes={notes} />}
-      {notes.length === 0 && <NotesListEmpty notes={notes} />}
+      {notes.length > 0 && <NoteList notes={notes} />}
+      {notes.length === 0 && <NoteListEmpty notes={notes} />}
       <Home />
     </div>
   );
