@@ -1,5 +1,5 @@
-import React from 'react'
-import { Link, useLocation } from 'react-router-dom'
+import React from 'react';
+import { Link, useLocation } from 'react-router-dom';
 
 export default function NavMenu() {
 	const { pathname } = useLocation();
@@ -8,9 +8,10 @@ export default function NavMenu() {
 		<nav className='navigation'>
 			<ul>
 				<li>
-					{pathname !== 'archives'
+					{pathname !== '/archives'
 					? <Link to='/archives' title='Archive'>Archive</Link>
 					: <Link to='/' title='Home'>Home</Link>}
+
 				</li>
 			</ul>
 		</nav>
