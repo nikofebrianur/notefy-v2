@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import PageAction from '../layout/PageAction';
+import PageAction from '../../layout/PageAction';
 import { FaCheck } from 'react-icons/fa';
 
 function EditNoteAction({ handleSave }) {
@@ -9,7 +9,7 @@ function EditNoteAction({ handleSave }) {
 			<button
 				className='action'
 				type='button'
-				title='Save'
+				title='SaveChanges'
 				onClick={() => handleSave()}
 			>
 				<FaCheck/>
