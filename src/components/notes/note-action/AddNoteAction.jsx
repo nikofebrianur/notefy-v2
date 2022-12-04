@@ -1,11 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { FaX } from 'react-icons/fa';
+import { FaArrowLeft, FaPlus } from 'react-icons/fa';
 import PageAction from '../../layout/PageAction';
 import { useNavigate } from 'react-router-dom';
 
 function AddNoteAction({ handleSave }) {
-  const navigate = useNavigate;
+  const navigate = useNavigate();
 
   return (
     <PageAction page='add-new-page'>
@@ -13,17 +13,19 @@ function AddNoteAction({ handleSave }) {
         <button
           className='action'
           type='button'
-          title='Add'
+          title='Back'
           onClick={() => navigate('/')}
         >
-          <FaX />
+          <FaArrowLeft />
         </button>
         <button
           className='action'
           type='button'
           title='Add'
           onClick={() => handleSave()}
-        ></button>
+        >
+			<FaPlus/>
+		</button>
       </>
     </PageAction>
   );
