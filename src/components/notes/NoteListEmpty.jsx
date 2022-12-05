@@ -1,9 +1,14 @@
-import React from 'react'
+import React from 'react';
+import useLang from '../../hooks/useLang';
 
 export default function NoteListEmpty() {
+  const text = useLang('note');
+
   return (
-    <section className="notes-list-empty">
-      <p className="notes-list__empty">No notes written down, please make one.</p>
+    <section className='notes-list-empty'>
+      <p className='notes-list__empty'>
+        {text.empty}
+      </p>
     </section>
-  )
+  );
 }

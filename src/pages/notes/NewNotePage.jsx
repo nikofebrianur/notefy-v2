@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import AddNoteAction from '../../components/notes/note-action/AddNoteAction';
-import { addNote } from '../../utils/local-data';
+import { addNote } from '../../utils/network-data';
 import { Editor } from 'react-draft-wysiwyg';
 import {
   ContentState,
@@ -11,38 +11,39 @@ import {
 } from 'draft-js';
 import draftToHtml from 'draftjs-to-html';
 import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
+import useInput from '../../hooks/useInput';
+import useLang from '../../hooks/useLang';
 
 export default function NewNotePage() {
+  const textApp = useLang('app');
+  const textNote = useLang('notesNew');
   const navigate = useNavigate();
 
-  const [form, setForm] = useState({
-    title: '',
-    body: EditorState.createWithContent(
+  const [title, setTitle] = useInput('');
+  const [body, setBody] = useState(
+    EditorState.createWithContent(
       ContentState.createFromBlockArray(
-        convertFromHTML('Write down your note here...')
+        convertFromHTML(textNote.bodyPlaceholder)
       )
-    ),
-  });
+    )
+  );
 
-  const onChangeHandler = (event) => {
-    setForm((data) => ({
-      ...data,
-      title: event.target.value,
-    }));
-  };
-
-  const onEditorStateChangeHandler = (body) => {
-    setForm((data) => ({
-      ...data,
-      body,
-    }));
+  const onEditorStateChange = (body) => {
+    setBody(body)
   };
 
   const onSaveHandler = () => {
-    const { title } = form;
-    const body = draftToHtml(convertToRaw(form.body.getCurrentContent()));
-    addNote({ title, body });
-    navigate('/');
+    const bodyParsed = draftToHtml(convertToRaw(body.getCurrentContent()));
+    addNote({ title, body: bodyParsed })
+      .then((res) => {
+        if (!res.error) {
+          alert(textNote.msgSuccess);
+          navigate('/');
+        }
+      })
+      .catch(() => {
+        alert(textApp.msg.error);
+      })
   };
 
   return (
@@ -50,14 +51,14 @@ export default function NewNotePage() {
       <div className='add-new-page__input'>
         <input
           className='add-new-page__input__title'
-          placeholder='Write down the note title here...'
-          value={form.title}
-          onChange={onChangeHandler}
+          placeholder={textNote.titlePlaceholder}
+          value={title}
+          onChange={setTitle}
         />
       </div>
       <Editor
-        editorState={form.body}
-        onEditorStateChange={onEditorStateChangeHandler}
+        editorState={body}
+        onEditorStateChange={onEditorStateChange}
       />
       <AddNoteAction handleSave={onSaveHandler} />
     </div>

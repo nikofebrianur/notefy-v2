@@ -1,9 +1,11 @@
 import React from 'react';
 import { FaPlus } from 'react-icons/fa';
 import { useNavigate } from 'react-router-dom';
+import useLang from '../../hooks/useLang';
 import PageAction from '../layout/PageAction';
 
 export default function Home() {
+  const text = useLang('app');
   const navigate = useNavigate();
 
   return (
@@ -11,10 +13,10 @@ export default function Home() {
       <button
         className='action'
         type='button'
-        title='Add'
+        title={text.add}
         onClick={() => navigate('/notes/new')}
       >
-        <FaPlus/>
+        <FaPlus />
       </button>
     </PageAction>
   );

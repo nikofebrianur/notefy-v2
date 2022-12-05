@@ -3,8 +3,10 @@ import PropTypes from 'prop-types';
 import { FaArrowLeft, FaPlus } from 'react-icons/fa';
 import PageAction from '../../layout/PageAction';
 import { useNavigate } from 'react-router-dom';
+import useLang from '../../../hooks/useLang';
 
 function AddNoteAction({ handleSave }) {
+  const text = useLang('app');
   const navigate = useNavigate();
 
   return (
@@ -13,7 +15,7 @@ function AddNoteAction({ handleSave }) {
         <button
           className='action'
           type='button'
-          title='Back'
+          title={text.cancel}
           onClick={() => navigate('/')}
         >
           <FaArrowLeft />
@@ -21,11 +23,11 @@ function AddNoteAction({ handleSave }) {
         <button
           className='action'
           type='button'
-          title='Add'
+          title={text.add}
           onClick={() => handleSave()}
         >
-			<FaPlus/>
-		</button>
+          <FaPlus />
+        </button>
       </>
     </PageAction>
   );
