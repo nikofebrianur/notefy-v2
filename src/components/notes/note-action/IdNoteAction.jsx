@@ -10,14 +10,14 @@ function IdNoteAction({ isArchived, handleEdit, handleArchive, handleDelete }) {
   return (
     <PageAction page='detail-page'>
       <>
-        <button
+        {/* <button
           className='action'
           type='button'
           title={text.delete}
           onClick={() => handleEdit()}
         >
-          <FaEdit />
-        </button>
+          <FaEdit /> */}
+        {/* </button> */}
         <button
           className='action'
           type='button'
