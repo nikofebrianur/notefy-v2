@@ -21,7 +21,7 @@ export default function IdNoteMainPage() {
   const [loading, setLoading] = useState(true);
 
   const textApp = useLang('app');
-  const textNote = useLang('noteId');
+  const textNote = useLang('notesId');
 
   const onEditHandler = () => {
     navigate(`/notes/${id}/edit`);
