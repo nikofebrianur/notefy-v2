@@ -19,7 +19,7 @@ const appPage = {
 		pageNotFound: 'Halaman Tidak Ditemukan.'
 	},
 	en: {
-		title: 'Notes App',
+		title: 'Notefy',
 		nav: {
 			home: 'Home',
 			archives: 'Archives'
@@ -80,19 +80,19 @@ const notePage = {
 	en: {
 		header: 'Active Notes',
 		searchPlaceholder: 'Search by title ...',
-		empty: 'Empty.'
+		empty: 'Empty notes list, please make one.'
 	}
 };
 
 const notesNewPage = {
 	id: {
-		titlePlaceholder: 'Judul',
-		bodyPlaceholder: '<b><i><u>Isi Catatan</u></i></b>',
+		titlePlaceholder: 'Judul Catatan',
+		bodyPlaceholder: 'Tulis catatan Anda di sini...',
 		msgSuccess: 'Berhasil menambahkan catatan!'
 	},
 	en: {
-		titlePlaceholder: 'Title',
-		bodyPlaceholder: '<b><i><u>Notes Content</u></i></b>',
+		titlePlaceholder: 'Note Title',
+		bodyPlaceholder: 'Write your note here...',
 		msgSuccess: 'Successfully add notes!'
 	}
 };
